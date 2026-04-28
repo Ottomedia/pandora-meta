@@ -19,5 +19,10 @@ Qui riportiamo link e annotazioni per analizzare la soluizone migliore.
 ## Altri Plugin da testare
 non correlati al deploy
 - https://github.com/alleyinteractive/meta-inspector/
-- https://developer.wordpress.org/cli/commands/dist-archive/
+
 - https://github.com/alleyinteractive/wp-rest-api-guard
+
+## Da consoderare
+- usare `.distignore` o `.gitattroibutes`?
+- https://git-scm.com/docs/git-archive per `.gitattributes`
+- https://developer.wordpress.org/cli/commands/dist-archive/ per `.distignore`
