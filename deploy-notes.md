@@ -16,13 +16,7 @@ Qui riportiamo link e annotazioni per analizzare la soluizone migliore.
 - https://github.com/marketplace/actions/wp-self-host-updater-generator
 - 
 
-## Altri Plugin da testare
-non correlati al deploy
-- https://github.com/alleyinteractive/meta-inspector/
-
-- https://github.com/alleyinteractive/wp-rest-api-guard
-
-## Da consoderare
+## Da considerare
 - usare `.distignore` o `.gitattroibutes`?
 - https://git-scm.com/docs/git-archive per `.gitattributes`
 - https://developer.wordpress.org/cli/commands/dist-archive/ per `.distignore`
