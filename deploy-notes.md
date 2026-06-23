@@ -14,7 +14,7 @@ Qui riportiamo link e annotazioni per analizzare la soluizone migliore.
 ## Plugin / scripts GitHub Auto Update per WP
 - https://github.com/softtent/wordpress-plugin-update-from-github
 - https://github.com/marketplace/actions/wp-self-host-updater-generator
-- 
+- https://www.plumislandmedia.net/wordpress/wordpress-plugin-tools/
 
 ## Da considerare
 - usare `.distignore` o `.gitattroibutes`?
