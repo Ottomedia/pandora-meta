@@ -19,4 +19,8 @@ Qui riportiamo link e annotazioni per analizzare la soluizone migliore.
 ## Da considerare
 - usare `.distignore` o `.gitattroibutes`?
 - https://git-scm.com/docs/git-archive per `.gitattributes`
+  ```bash
+  # This will exclude everything in the .gitattributes file with the export-ignore flag
+	git archive HEAD | tar x --directory="$TMP_DIR"
+  ```
 - https://developer.wordpress.org/cli/commands/dist-archive/ per `.distignore`
