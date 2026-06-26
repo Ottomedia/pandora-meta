@@ -12,7 +12,7 @@ Qui riportiamo link e annotazioni per analizzare la soluizone migliore.
 - https://github.com/aether-wp/create-public-release  <--
 - 
 ## Plugin / scripts GitHub Auto Update per WP
-- https://github.com/softtent/wordpress-plugin-update-from-github _(classe compatta, chiara, wp standard. gestisce solo plugin. modifica per i temi sembra fattibile)_
+- [https://github.com/softtent/wordpress-plugin-update-from-github](https://github.com/softtent/wordpress-plugin-update-from-github) _(classe compatta, chiara, wp standard. gestisce solo plugin. modifica per i temi sembra fattibile)_
 - https://github.com/marketplace/actions/wp-self-host-updater-generator
 - https://www.plumislandmedia.net/wordpress/wordpress-plugin-tools/
 
