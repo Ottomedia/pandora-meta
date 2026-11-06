@@ -167,24 +167,37 @@ permissions:
 
 Per plugin privati GitHub:
 
-* usare Fine-grained Personal Access Token
-* accesso limitato al repository
-* permesso:
+* usare un Personal Access Token **classic** con scope `repo`
+* non usare i token fine-grained: con `plugin-update-checker` v5.6, che si autentica sempre con Basic auth, non funzionano (provato)
+* definire il token solo sui siti che ricevono gli aggiornamenti, non in locale, dove il codice si aggiorna con git
 
-  * Contents → Read-only
+Lo scope `repo` dà accesso completo ai repository privati: il token va trattato come una credenziale critica.
 
 Configurazione consigliata:
 
 ```php
-$updateChecker->setAuthentication(
-    defined('GITHUB_UPDATER_AUTH_TOKEN') ? GITHUB_UPDATER_AUTH_TOKEN : ''
-);
+add_action( 'plugins_loaded', function () {
+    if ( ! defined( 'GITHUB_UPDATER_AUTH_TOKEN' ) ) {
+        // In locale il codice si aggiorna con git: il token non serve e l'assenza non va segnalata.
+        if ( 'local' !== wp_get_environment_type() ) {
+            error_log( 'GITHUB_UPDATER_AUTH_TOKEN not defined in ' . __FILE__ . '. GitHub updates will not work.' );
+        }
+        return;
+    }
+
+    $updateChecker = PucFactory::buildUpdateChecker(
+        'https://github.com/Ottomedia/nome-repository',
+        __FILE__,
+        'nome-plugin'
+    );
+    $updateChecker->setAuthentication( GITHUB_UPDATER_AUTH_TOKEN );
+}, 0 );
 ```
 
 e nel `wp-config.php`:
 
 ```php
-define('GITHUB_UPDATER_AUTH_TOKEN', 'github_pat_xxxxx');
+define( 'GITHUB_UPDATER_AUTH_TOKEN', 'ghp_xxxxx' );
 ```
 
 ---
