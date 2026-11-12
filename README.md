@@ -284,3 +284,17 @@ jobs:
 ```
 
 **Nota**: Se NON fornisci il secret `github-token`, il workflow usa il `GITHUB_TOKEN` default (comportamento backward-compatible). I workflow successivi **non** verranno triggerati.
+
+## Script: matrice degli accessi
+
+`tools/matrice-accessi.sh` verifica, **senza credenziali**, che ogni punto di ingresso di BcOk risponda come previsto a un visitatore non loggato: frontend, export, feed, vecchi URL di Ultimate Member, pagine di login, wp-admin, REST API (chiusa, tranne le route aperte di proposito), feed iCal, XML-RPC, file serviti dal web server. Contesto: issue #11 e #12.
+
+```bash
+tools/matrice-accessi.sh --pausa 0 https://bcok.local   # sito locale
+tools/matrice-accessi.sh https://bcok.it                 # produzione, 1 secondo tra le richieste
+```
+
+- Fa solo richieste in lettura (più una POST innocua su `xmlrpc.php`) ed esce con 1 se almeno un controllo fallisce.
+- In produzione Wordfence può bloccare l'IP che fa molte richieste di fila: lasciare la pausa predefinita e, se serve, mettere in whitelist temporanea il proprio IP.
+- Le route REST aperte ai non loggati sono elencate in testa allo script (`ROUTE_REST_APERTE`): vanno tenute allineate a disable-json-api in produzione.
+- Va lanciato dopo ogni rilascio che tocca l'accesso, dopo ogni passo della rimozione di Ultimate Member e dopo aggiornamenti importanti del core, di Wordfence o di disable-json-api.
