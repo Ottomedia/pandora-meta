@@ -4,7 +4,7 @@
 
 L'installazione operativa di `pandora` è [BcOk.it](https://bcok.it)
 
-In questo repository salviamo la documentazione (work in progress) per gli sviluppatori (nel Wiki), script di aiuto, riferimenti, liste "promeoria" ecc.
+In questo repository salviamo la documentazione (work in progress) per gli sviluppatori (nel Wiki), script di aiuto, riferimenti, liste "promemoria" ecc.
 
 I singoli plugin che compongono `pandora` e `BcOk` sono repository privati
 
